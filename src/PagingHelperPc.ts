@@ -37,14 +37,14 @@ class PagingHelper<T> {
     }
   }
 
-  pageDown() { // 下一页
+  pageDown() { //TODO 下一页 
     if (this.canPageDown()) {
       this.currentPage ++
       this.offset = this.offset + this.limit
     }
   }
 
-  jumpTo(pageNum: number) { // 跳转到某一页
+  jumpTo(pageNum: number) { //TODO 跳转到某一页
     this.currentPage = pageNum
     this.offset = (pageNum - 1) * this.limit
   }
