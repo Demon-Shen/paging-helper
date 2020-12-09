@@ -1,7 +1,7 @@
 {
   "name": "paging-helper",
   "version": "1.0.1",
-  "description": "",
+  "description": "utils from paging",
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/test.js",
