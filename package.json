@@ -9,6 +9,10 @@
   },
   "keywords": [],
   "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Demon-Shen/pagingHelper.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-env": "^7.12.7",
