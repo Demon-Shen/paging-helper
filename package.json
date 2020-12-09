@@ -1,6 +1,6 @@
 {
   "name": "paging-helper",
-  "version": "1.0.3",
+  "version": "2.0.6",
   "description": "utils from paging",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "author": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Demon-Shen/paging-helper.git"
+    "url": "https://github.com/Sweet-666/paging-helper"
   },
   "license": "ISC",
   "devDependencies": {

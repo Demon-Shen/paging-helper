@@ -40,3 +40,9 @@ In most case, We have lots of variable with paging.
 It is a util for you to manage your paging.
 Just for have a clear mind!
 ```
+
+## Future
+```
+PagingHelper is used for mobile.
+In the near future, it will support PC
+```
