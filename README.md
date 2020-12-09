@@ -36,5 +36,7 @@ pageHelper.hasMoreDate    // true
 ## Introduce
 
 ```
-In most case, We have lots of variable with paging. It is a util for you to manage your paging. Just for code clear!
+In most case, We have lots of variable with paging. 
+It is a util for you to manage your paging.
+Just for have a clear mind!
 ```
