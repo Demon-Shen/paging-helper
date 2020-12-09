@@ -4,8 +4,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @作者 swt
  * @创建时间 2020-12-08
  */
-var PageHelper = /** @class */ (function () {
-    function PageHelper(limit, offset) {
+var PagingHelper = /** @class */ (function () {
+    function PagingHelper(limit, offset) {
         if (limit === void 0) { limit = 10; }
         if (offset === void 0) { offset = 0; }
         this.limit = limit;
@@ -15,7 +15,7 @@ var PageHelper = /** @class */ (function () {
         this.moreData = false;
         this.accumulator = [];
     }
-    PageHelper.prototype.loadMore = function (newData) {
+    PagingHelper.prototype.loadMore = function (newData) {
         if (this.hasMoreDate()) {
             this.offset = this.offset + this.limit;
             this.accumulator = this.accumulator.concat(newData);
@@ -25,15 +25,15 @@ var PageHelper = /** @class */ (function () {
             return this.accumulator;
         }
     };
-    PageHelper.prototype.hasMoreDate = function () {
+    PagingHelper.prototype.hasMoreDate = function () {
         return this.offset + this.limit < this.count;
     };
-    PageHelper.prototype.setCount = function (count) {
+    PagingHelper.prototype.setCount = function (count) {
         this.count = count;
     };
-    PageHelper.prototype.setData = function (data) {
+    PagingHelper.prototype.setData = function (data) {
         this.accumulator = data;
     };
-    return PageHelper;
+    return PagingHelper;
 }());
-exports.default = PageHelper;
+exports.default = PagingHelper;

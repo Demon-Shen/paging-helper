@@ -6,7 +6,7 @@ require('@babel/register')({
   extensions: ['.ts']
 })
 
-const PageHelper = require('../build/PageHelper').default
+const PagingHelper = require('../build/PagingHelper').default
 require('mocha')
 
 describe('分页测试', () => {
@@ -20,7 +20,7 @@ describe('分页测试', () => {
   }
 
 
-  let stdPage = new PageHelper(limit, offset)
+  let stdPage = new PagingHelper(limit, offset)
   stdPage.setCount(pageCount)
   it('首次加载数据', (done) => {
     let initData = data.slice(offset, offset + limit)

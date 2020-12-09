@@ -1,5 +1,5 @@
-import PageHelper from './build/PageHelper'
+import PagingHelper from './build/PagingHelper'
 
 export {
-  PageHelper
+  PagingHelper
 } 

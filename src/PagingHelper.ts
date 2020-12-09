@@ -2,7 +2,7 @@
  * @作者 swt
  * @创建时间 2020-12-08
  */
-class PageHelper<T> {
+class PagingHelper<T> {
 
   offset: number                  // 起始的位置
   limit: number                   // 每一页的长度     
@@ -42,4 +42,4 @@ class PageHelper<T> {
   }
 }
 
-export default PageHelper
+export default PagingHelper
