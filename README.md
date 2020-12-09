@@ -25,7 +25,7 @@ pageHelper.offset         // 0
 pageHelper.accumulator    // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 pageHelper.hasMoreDate    // true
 
-stdPage.loadMore([11, 12, 13, 14, 15, 16, 17, 18, 19. 20])
+pageHelper.loadMore([11, 12, 13, 14, 15, 16, 17, 18, 19. 20])
 
 pageHelper.offset         // 1
 pageHelper.accumulator    // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
@@ -36,5 +36,5 @@ pageHelper.hasMoreDate    // true
 ## Introduce
 
 ```
-
+In most case, We have lots of variable with paging. It is a util for you to manage your paging. Just for code clear!
 ```
