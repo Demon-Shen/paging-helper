@@ -16,7 +16,7 @@ var PagingHelper = /** @class */ (function () {
         this.accumulator = [];
     }
     PagingHelper.prototype.loadMore = function (newData) {
-        if (this.hasMoreDate()) {
+        if (this.hasMoreData()) {
             this.offset = this.offset + this.limit;
             this.accumulator = this.accumulator.concat(newData);
             return this.accumulator;
@@ -25,7 +25,7 @@ var PagingHelper = /** @class */ (function () {
             return this.accumulator;
         }
     };
-    PagingHelper.prototype.hasMoreDate = function () {
+    PagingHelper.prototype.hasMoreData = function () {
         return this.offset + this.limit < this.count;
     };
     PagingHelper.prototype.setCount = function (count) {

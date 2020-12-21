@@ -7,9 +7,10 @@ require('@babel/register')({
 })
 
 const PagingHelper = require('../build/PagingHelper').default
+const PagingHelperPC = require('../build/PagingHelperPC').default
 require('mocha')
 
-describe('分页测试', () => {
+describe('移动端测试', () => {
   const pageCount = 36
   const limit = 10
   
@@ -53,5 +54,32 @@ describe('分页测试', () => {
       }
     }
     done()
+  })
+})
+
+describe('PC端测试', () => {
+  const pageCount = 36
+  const limit = 10
+  
+  let data = []
+  let offset = 0
+  for (let i = 0; i < pageCount; i++) {
+    data.push(i)
+  }
+
+  let stdPage = new PagingHelperPC(limit, offset)
+  stdPage.setAllData(data)
+  it('上一页', (done) => {
+    if (stdPage.pageUp().length > 0) {
+      done() 
+    } else {
+      done('上一页翻页有误')
+    }
+  })
+  it('下一页', (done) => {
+    stdPage.pageDown()
+  })
+  it('跳转到某一页', (done) => {
+
   })
 })

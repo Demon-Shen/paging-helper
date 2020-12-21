@@ -2,7 +2,7 @@
  * @作者 swt
  * @创建时间 2020-12-09
  */
-class PagingHelper<T> {
+class PagingHelperPC<T> {
   offset: number                  // 起始的位置
   limit: number                   // 每一页的长度     
   count: number              			// 总数据的长度
@@ -27,7 +27,7 @@ class PagingHelper<T> {
     this.currentPageData = allData.slice(this.offset, this.offset + this.limit)
   }
 
-  pageUp() { // 上一页
+  pageUp(): T[] { // 上一页
     if (this.canPageUp()) {
       let end = this.offset
       let start = this.offset - this.limit
@@ -35,20 +35,26 @@ class PagingHelper<T> {
       this.currentPage --
       this.offset = start
     }
+    return this.currentPageData
   }
 
-  pageDown() { //TODO 下一页 
+  pageDown(): T[] { // 下一页 
     if (this.canPageDown()) {
       this.currentPage ++
       this.offset = this.offset + this.limit
       this.currentPageData = this.allData.slice(this.offset, this.offset + this.limit)
     }
+    return this.currentPageData
   }
 
-  jumpTo(pageNum: number) { //TODO 跳转到某一页
+  jumpTo(pageNum: number): T[] { // 跳转到某一页
+    if (pageNum > this.allData.length / this.limit ) {
+      throw new Error("超出了跳转最大页数");
+    }
     this.currentPage = pageNum
     this.offset = (pageNum - 1) * this.limit
     this.currentPageData = this.allData.slice(this.offset, this.offset + this.limit)
+    return this.currentPageData
   }
 
   canPageUp(): boolean { // 是否可以向上翻页
@@ -59,3 +65,5 @@ class PagingHelper<T> {
     return this.offset + this.limit < this.count
   }
 }
+
+export default PagingHelperPC
