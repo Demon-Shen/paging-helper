@@ -14,7 +14,7 @@ class PagingHelper<T> {
     this.limit = limit
     this.offset = offset
     this.count = 0
-    this.currentPage = 0,
+    this.currentPage = 0
     this.currentPageData = []
     this.allData = []
   }
@@ -41,12 +41,14 @@ class PagingHelper<T> {
     if (this.canPageDown()) {
       this.currentPage ++
       this.offset = this.offset + this.limit
+      this.currentPageData = this.allData.slice(this.offset, this.offset + this.limit)
     }
   }
 
   jumpTo(pageNum: number) { //TODO 跳转到某一页
     this.currentPage = pageNum
     this.offset = (pageNum - 1) * this.limit
+    this.currentPageData = this.allData.slice(this.offset, this.offset + this.limit)
   }
 
   canPageUp(): boolean { // 是否可以向上翻页

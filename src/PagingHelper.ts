@@ -20,7 +20,7 @@ class PagingHelper<T> {
   }
 
   loadMore(newData: T[]): T[] {
-    if (this.hasMoreDate()) {
+    if (this.hasMoreData()) {
       this.offset = this.offset + this.limit
       this.accumulator = this.accumulator.concat(newData)
       return this.accumulator
@@ -29,7 +29,7 @@ class PagingHelper<T> {
     }
   }
 
-  hasMoreDate(): Boolean {
+  hasMoreData(): Boolean {
     return this.offset + this.limit < this.count
   }
 

@@ -23,13 +23,13 @@ PagingHelper.setData(initData)
 
 PagingHelper.offset         // 0
 PagingHelper.accumulator    // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-PagingHelper.hasMoreDate    // true
+PagingHelper.hasMoreData    // true
 
 PagingHelper.loadMore([11, 12, 13, 14, 15, 16, 17, 18, 19. 20])
 
 PagingHelper.offset         // 1
 PagingHelper.accumulator    // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-PagingHelper.hasMoreDate    // true
+PagingHelper.hasMoreData    // true
 
 ```
 
