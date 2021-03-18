@@ -2,12 +2,8 @@
  * @Author: sweet
  * @Date: 2020-12-09 15:39:25
  * @LastEditors: sweet
- * @LastEditTime: 2021-03-18 09:40:44
+ * @LastEditTime: 2021-03-18 09:58:35
  * @Description: file content
- */
-/**
- * @作者 swt
- * @创建时间 2020-12-09
  */
 class PagingHelperPC<T> {
   offset: number                  // 起始的位置
