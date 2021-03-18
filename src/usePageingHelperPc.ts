@@ -2,27 +2,21 @@
  * @Author: sweet
  * @Date: 2021-03-18 11:40:42
  * @LastEditors: sweet
- * @LastEditTime: 2021-03-18 11:42:30
+ * @LastEditTime: 2021-03-18 13:48:33
  * @Description: file content
  */
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export const usePagingHelper = <T>(paramLimit: number, paramOffset: number) => {
-  const [offset, setOffset] = useState<number>(paramOffset)  // 起始的位置
-  const [limit] = useState<number>(paramLimit)  // 每一页的长度
-  const [count, setCount] = useState<number>(0)  // 总数据的长度
-  const [currentPage, setCurrentPage] = useState<number>(0)  // 当前的页数
-  const [allData, setAllData] = useState<T[]>([])  // 假分页时的总数据
-  const [currentPageData, setCurrentPageData] = useState<T[]>([])  // 当前分页下的数据
-
-  const canPageUp = (): boolean => { // 是否可以向上翻页
-    return currentPage > 0
-  }
-
-  const canPageDown = (): boolean => { // 是否可以向后翻页
-    return offset + limit < count
-  }
+  const [offset, setOffset] = useState<number>(paramOffset)       // 起始的位置
+  const [limit] = useState<number>(paramLimit)                    // 每一页的长度
+  const [count, setCount] = useState<number>(0)                   // 总数据的长度
+  const [currentPage, setCurrentPage] = useState<number>(0)       // 当前的页数
+  const [allData, setAllData] = useState<T[]>([])                 // 假分页时的总数据
+  const [currentPageData, setCurrentPageData] = useState<T[]>([]) // 当前分页下的数据
+  const [canPageUp, setCanPageUp] = useState(false)               // 是否可以向上翻页
+  const [canPageDown, setCanPageDown] = useState(false)           // 是否可以向后翻页
 
   /**
    * 假分页时可以传入data， 真分页时不要传
@@ -34,7 +28,7 @@ export const usePagingHelper = <T>(paramLimit: number, paramOffset: number) => {
   }
 
   const pageUp = (): T[] => { // 上一页
-    if (canPageUp()) {
+    if (canPageUp) {
       let end = offset
       let start = offset - limit
       setCurrentPageData(allData.slice(start, end))
@@ -45,7 +39,7 @@ export const usePagingHelper = <T>(paramLimit: number, paramOffset: number) => {
   }
 
   const pageDown = (): T[] => { // 下一页
-    if (canPageDown()) {
+    if (canPageDown) {
       setCurrentPage(currentPage + 1)
       setOffset(offset + limit)
       setCurrentPageData(allData.slice(offset, offset + limit))
@@ -63,6 +57,11 @@ export const usePagingHelper = <T>(paramLimit: number, paramOffset: number) => {
     return currentPageData
   }
 
+  useEffect(() => {
+    setCanPageUp(currentPage > 0)
+    setCanPageDown(offset + limit < count)
+  }, [currentPage, offset, limit, count])
+
   return {
     offset,
     limit,
@@ -76,6 +75,7 @@ export const usePagingHelper = <T>(paramLimit: number, paramOffset: number) => {
     canPageDown,
     pageUp,
     pageDown,
-    jumpTo
+    jumpTo,
+    setCurrentPage
   }
 }
