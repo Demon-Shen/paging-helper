@@ -1,3 +1,10 @@
+/*
+ * @Author: sweet
+ * @Date: 2020-12-09 15:39:25
+ * @LastEditors: sweet
+ * @LastEditTime: 2021-03-18 09:40:44
+ * @Description: file content
+ */
 /**
  * @作者 swt
  * @创建时间 2020-12-09
@@ -24,7 +31,12 @@ class PagingHelperPC<T> {
    */
   setAllData(allData: T[]) {
     this.allData = allData
+    this.count = allData.length
     this.currentPageData = allData.slice(this.offset, this.offset + this.limit)
+  }
+
+  setCount(count: number) {
+    this.count = count
   }
 
   pageUp(): T[] { // 上一页
@@ -48,7 +60,7 @@ class PagingHelperPC<T> {
   }
 
   jumpTo(pageNum: number): T[] { // 跳转到某一页
-    if (pageNum > this.allData.length / this.limit ) {
+    if (pageNum > this.count / this.limit ) {
       throw new Error("超出了跳转最大页数");
     }
     this.currentPage = pageNum
