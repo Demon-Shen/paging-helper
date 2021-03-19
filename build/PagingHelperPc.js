@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * @作者 swt
- * @创建时间 2020-12-09
+/*
+ * @Author: sweet
+ * @Date: 2020-12-09 15:39:25
+ * @LastEditors: sweet
+ * @LastEditTime: 2021-03-18 09:58:35
+ * @Description: file content
  */
 var PagingHelperPC = /** @class */ (function () {
     function PagingHelperPC(limit, offset) {
@@ -20,7 +23,11 @@ var PagingHelperPC = /** @class */ (function () {
      */
     PagingHelperPC.prototype.setAllData = function (allData) {
         this.allData = allData;
+        this.count = allData.length;
         this.currentPageData = allData.slice(this.offset, this.offset + this.limit);
+    };
+    PagingHelperPC.prototype.setCount = function (count) {
+        this.count = count;
     };
     PagingHelperPC.prototype.pageUp = function () {
         if (this.canPageUp()) {
@@ -41,7 +48,7 @@ var PagingHelperPC = /** @class */ (function () {
         return this.currentPageData;
     };
     PagingHelperPC.prototype.jumpTo = function (pageNum) {
-        if (pageNum > this.allData.length / this.limit) {
+        if (pageNum > this.count / this.limit) {
             throw new Error("超出了跳转最大页数");
         }
         this.currentPage = pageNum;
