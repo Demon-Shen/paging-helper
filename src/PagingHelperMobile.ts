@@ -2,10 +2,10 @@
  * @Author: sweet
  * @Date: 2020-04-23 19:00:51
  * @LastEditors: sweet
- * @LastEditTime: 2021-04-19 13:52:28
+ * @LastEditTime: 2021-04-19 14:04:44
  * @Description: file content
  */
-class PagingHelperH5<T> {
+class PagingHelperMobile<T> {
   offset: number; // 起始的位置
   limit: number; // 每一页的长度
   count: number; // 总数据的长度
@@ -44,4 +44,4 @@ class PagingHelperH5<T> {
   }
 }
 
-export default PagingHelperH5;
+export default PagingHelperMobile;
