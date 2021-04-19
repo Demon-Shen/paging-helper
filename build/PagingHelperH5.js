@@ -1,11 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * @作者 swt
- * @创建时间 2020-12-08
+/*
+ * @Author: sweet
+ * @Date: 2020-04-23 19:00:51
+ * @LastEditors: sweet
+ * @LastEditTime: 2021-04-19 13:52:28
+ * @Description: file content
  */
-var PagingHelper = /** @class */ (function () {
-    function PagingHelper(limit, offset) {
+var PagingHelperH5 = /** @class */ (function () {
+    function PagingHelperH5(limit, offset) {
         if (limit === void 0) { limit = 10; }
         if (offset === void 0) { offset = 0; }
         this.limit = limit;
@@ -15,7 +18,7 @@ var PagingHelper = /** @class */ (function () {
         this.moreData = false;
         this.accumulator = [];
     }
-    PagingHelper.prototype.loadMore = function (newData) {
+    PagingHelperH5.prototype.loadMore = function (newData) {
         if (this.hasMoreData()) {
             this.offset = this.offset + this.limit;
             this.accumulator = this.accumulator.concat(newData);
@@ -25,15 +28,15 @@ var PagingHelper = /** @class */ (function () {
             return this.accumulator;
         }
     };
-    PagingHelper.prototype.hasMoreData = function () {
+    PagingHelperH5.prototype.hasMoreData = function () {
         return this.offset + this.limit < this.count;
     };
-    PagingHelper.prototype.setCount = function (count) {
+    PagingHelperH5.prototype.setCount = function (count) {
         this.count = count;
     };
-    PagingHelper.prototype.setData = function (data) {
+    PagingHelperH5.prototype.setData = function (data) {
         this.accumulator = data;
     };
-    return PagingHelper;
+    return PagingHelperH5;
 }());
-exports.default = PagingHelper;
+exports.default = PagingHelperH5;

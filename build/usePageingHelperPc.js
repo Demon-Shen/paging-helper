@@ -3,13 +3,13 @@
  * @Author: sweet
  * @Date: 2021-03-18 11:40:42
  * @LastEditors: sweet
- * @LastEditTime: 2021-03-18 14:36:45
+ * @LastEditTime: 2021-04-19 13:52:02
  * @Description: file content
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.usePagingHelper = void 0;
+exports.usePageingHelperPc = void 0;
 var react_1 = require("react");
-var usePagingHelper = function (paramLimit, paramOffset) {
+var usePageingHelperPc = function (paramLimit, paramOffset) {
     var _a = react_1.useState(paramOffset), offset = _a[0], setOffset = _a[1]; // 起始的位置
     var limit = react_1.useState(paramLimit)[0]; // 每一页的长度
     var _b = react_1.useState(0), count = _b[0], setCount = _b[1]; // 总数据的长度
@@ -49,7 +49,7 @@ var usePagingHelper = function (paramLimit, paramOffset) {
     var jumpTo = function (pageNum) {
         // 跳转到某一页
         if (pageNum > count / limit) {
-            throw new Error('超出了跳转最大页数');
+            throw new Error("超出了跳转最大页数");
         }
         setCurrentPage(pageNum);
         setOffset((pageNum - 1) * limit);
@@ -77,4 +77,4 @@ var usePagingHelper = function (paramLimit, paramOffset) {
         setCurrentPage: setCurrentPage,
     };
 };
-exports.usePagingHelper = usePagingHelper;
+exports.usePageingHelperPc = usePageingHelperPc;
