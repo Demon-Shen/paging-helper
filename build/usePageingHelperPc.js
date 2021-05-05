@@ -3,7 +3,7 @@
  * @Author: sweet
  * @Date: 2021-03-18 11:40:42
  * @LastEditors: sweet
- * @LastEditTime: 2021-05-05 20:02:57
+ * @LastEditTime: 2021-05-05 22:39:34
  * @Description: file content
  */
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -47,7 +47,7 @@ exports.default = (function (paramLimit, paramOffset) {
     };
     var jumpTo = function (pageNum) {
         // 跳转到某一页
-        if (pageNum > count / limit) {
+        if (pageNum > count / limit + 1) {
             throw new Error("超出了跳转最大页数");
         }
         setCurrentPage(pageNum);

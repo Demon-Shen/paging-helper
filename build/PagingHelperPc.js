@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @Author: sweet
  * @Date: 2020-12-09 15:39:25
  * @LastEditors: sweet
- * @LastEditTime: 2021-03-18 09:58:35
+ * @LastEditTime: 2021-05-05 22:43:56
  * @Description: file content
  */
 var PagingHelperPC = /** @class */ (function () {
@@ -30,6 +30,7 @@ var PagingHelperPC = /** @class */ (function () {
         this.count = count;
     };
     PagingHelperPC.prototype.pageUp = function () {
+        // 上一页
         if (this.canPageUp()) {
             var end = this.offset;
             var start = this.offset - this.limit;
@@ -40,6 +41,7 @@ var PagingHelperPC = /** @class */ (function () {
         return this.currentPageData;
     };
     PagingHelperPC.prototype.pageDown = function () {
+        // 下一页
         if (this.canPageDown()) {
             this.currentPage++;
             this.offset = this.offset + this.limit;
@@ -48,7 +50,8 @@ var PagingHelperPC = /** @class */ (function () {
         return this.currentPageData;
     };
     PagingHelperPC.prototype.jumpTo = function (pageNum) {
-        if (pageNum > this.count / this.limit) {
+        // 跳转到某一页
+        if (pageNum > this.count / this.limit + 1) {
             throw new Error("超出了跳转最大页数");
         }
         this.currentPage = pageNum;
@@ -57,9 +60,11 @@ var PagingHelperPC = /** @class */ (function () {
         return this.currentPageData;
     };
     PagingHelperPC.prototype.canPageUp = function () {
+        // 是否可以向上翻页
         return this.currentPage > 0;
     };
     PagingHelperPC.prototype.canPageDown = function () {
+        // 是否可以向后翻页
         return this.offset + this.limit < this.count;
     };
     return PagingHelperPC;
