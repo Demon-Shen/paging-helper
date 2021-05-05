@@ -3,13 +3,12 @@
  * @Author: sweet
  * @Date: 2021-03-18 11:40:42
  * @LastEditors: sweet
- * @LastEditTime: 2021-04-19 13:52:02
+ * @LastEditTime: 2021-05-05 20:02:57
  * @Description: file content
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.usePageingHelperPc = void 0;
 var react_1 = require("react");
-var usePageingHelperPc = function (paramLimit, paramOffset) {
+exports.default = (function (paramLimit, paramOffset) {
     var _a = react_1.useState(paramOffset), offset = _a[0], setOffset = _a[1]; // 起始的位置
     var limit = react_1.useState(paramLimit)[0]; // 每一页的长度
     var _b = react_1.useState(0), count = _b[0], setCount = _b[1]; // 总数据的长度
@@ -76,5 +75,4 @@ var usePageingHelperPc = function (paramLimit, paramOffset) {
         jumpTo: jumpTo,
         setCurrentPage: setCurrentPage,
     };
-};
-exports.usePageingHelperPc = usePageingHelperPc;
+});

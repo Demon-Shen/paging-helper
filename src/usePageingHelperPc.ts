@@ -2,16 +2,13 @@
  * @Author: sweet
  * @Date: 2021-03-18 11:40:42
  * @LastEditors: sweet
- * @LastEditTime: 2021-04-19 13:52:02
+ * @LastEditTime: 2021-05-05 20:02:57
  * @Description: file content
  */
 
 import { useState, useEffect } from "react";
 
-export const usePageingHelperPc = <T>(
-  paramLimit: number,
-  paramOffset: number
-) => {
+export default <T>(paramLimit: number, paramOffset: number) => {
   const [offset, setOffset] = useState<number>(paramOffset); // 起始的位置
   const [limit] = useState<number>(paramLimit); // 每一页的长度
   const [count, setCount] = useState<number>(0); // 总数据的长度
